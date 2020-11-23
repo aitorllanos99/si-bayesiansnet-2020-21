@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProbModelXML formatVersion="0.2.0">
+  <ProbNet type="BayesianNetwork">
+    <DecisionCriteria>
+      <Criterion name="---" unit="---" />
+    </DecisionCriteria>
+    <Properties>
+      <Property name="Version" value="1.0" />
+      <Property name="KindOfGraph" value="directed" />
+      <Property name="VisualPrecision" value="0.0" />
+      <Property name="WhenChanged" value="19/08/99" />
+      <Property name="WhoChanged" value="Jose A. Gamez" />
+    </Properties>
+    <Variables>
+      <Variable name="Funcionario" type="finiteStates" role="chance">
+        <Comment><![CDATA[<html>
+  <head>
+    
+  </head>
+  <body>
+    Indica si la persona es un funcionario
+  </body>
+</html>]]></Comment>
+        <Coordinates x="250" y="324" />
+        <Properties>
+          <Property name="Relevance" value="7.0" />
+          <Property name="Title" value="X" />
+        </Properties>
+        <States>
+          <State name="no" />
+          <State name="yes" />
+        </States>
+      </Variable>
+      <Variable name="Servidor publico" type="finiteStates" role="chance">
+        <Coordinates x="586" y="328" />
+        <Properties>
+          <Property name="Relevance" value="7.0" />
+          <Property name="Title" value="D" />
+        </Properties>
+        <States>
+          <State name="no" />
+          <State name="yes" />
+        </States>
+      </Variable>
+      <Variable name="Aprobo Bachillerato" type="finiteStates" role="chance">
+        <Coordinates x="308" y="40" />
+        <Properties>
+          <Property name="Relevance" value="7.0" />
+          <Property name="Title" value="A" />
+        </Properties>
+        <States>
+          <State name="no" />
+          <State name="yes" />
+        </States>
+      </Variable>
+      <Variable name="Master Habilitante" type="finiteStates" role="chance">
+        <Coordinates x="669" y="206" />
+        <Properties>
+          <Property name="Relevance" value="7.0" />
+          <Property name="Title" value="S" />
+        </Properties>
+        <States>
+          <State name="no" />
+          <State name="yes" />
+        </States>
+      </Variable>
+      <Variable name="Tiene una carrera" type="finiteStates" role="chance">
+        <Coordinates x="568" y="57" />
+        <Properties>
+          <Property name="Relevance" value="7.0" />
+          <Property name="Title" value="L" />
+        </Properties>
+        <States>
+          <State name="no" />
+          <State name="yes" />
+        </States>
+      </Variable>
+      <Variable name="Apobo Oposicion" type="finiteStates" role="chance">
+        <Coordinates x="189" y="140" />
+        <Properties>
+          <Property name="Relevance" value="7.0" />
+          <Property name="Title" value="T" />
+        </Properties>
+        <States>
+          <State name="no" />
+          <State name="yes" />
+        </States>
+      </Variable>
+      <Variable name="Tiene una carrera o oposicion" type="finiteStates" role="chance">
+        <Coordinates x="399" y="215" />
+        <Properties>
+          <Property name="Relevance" value="7.0" />
+          <Property name="Title" value="E" />
+        </Properties>
+        <States>
+          <State name="no" />
+          <State name="yes" />
+        </States>
+      </Variable>
+    </Variables>
+    <Links>
+      <Link directed="true">
+        <Variable name="Aprobo Bachillerato" />
+        <Variable name="Apobo Oposicion" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Master Habilitante" />
+        <Variable name="Servidor publico" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Tiene una carrera" />
+        <Variable name="Tiene una carrera o oposicion" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Tiene una carrera" />
+        <Variable name="Master Habilitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Apobo Oposicion" />
+        <Variable name="Tiene una carrera o oposicion" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Tiene una carrera o oposicion" />
+        <Variable name="Servidor publico" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Tiene una carrera o oposicion" />
+        <Variable name="Funcionario" />
+      </Link>
+    </Links>
+    <Potentials>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Funcionario" />
+          <Variable name="Tiene una carrera o oposicion" />
+        </Variables>
+        <Values>0.95 0.05 0.02 0.98</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Servidor publico" />
+          <Variable name="Tiene una carrera o oposicion" />
+          <Variable name="Master Habilitante" />
+        </Variables>
+        <Values>0.9 0.1 0.3 0.7 0.9 0.1 0.3 0.7</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Aprobo Bachillerato" />
+        </Variables>
+        <Values>0.35 0.65</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Master Habilitante" />
+          <Variable name="Tiene una carrera" />
+        </Variables>
+        <Values>0.5 0.5 0.5 0.5</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Tiene una carrera" />
+        </Variables>
+        <Values>0.771 0.229</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Apobo Oposicion" />
+          <Variable name="Aprobo Bachillerato" />
+        </Variables>
+        <Values>0.99 0.01 0.95 0.05</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Tiene una carrera o oposicion" />
+          <Variable name="Tiene una carrera" />
+          <Variable name="Apobo Oposicion" />
+        </Variables>
+        <Values>1.0 0.0 0.0 1.0 0.0 1.0 0.0 1.0</Values>
+      </Potential>
+    </Potentials>
+  </ProbNet>
+  <InferenceOptions>
+    <MulticriteriaOptions>
+      <SelectedAnalysisType>UNICRITERION</SelectedAnalysisType>
+      <Unicriterion>
+        <Scales>
+          <Scale Criterion="---" Value="1.0" />
+        </Scales>
+      </Unicriterion>
+      <CostEffectiveness>
+        <Scales>
+          <Scale Criterion="---" Value="1.0" />
+        </Scales>
+        <CE_Criteria>
+          <CE_Criterion Criterion="---" Value="Cost" />
+        </CE_Criteria>
+      </CostEffectiveness>
+    </MulticriteriaOptions>
+  </InferenceOptions>
+</ProbModelXML>
